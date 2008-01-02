@@ -7,6 +7,7 @@ Group:		Networking/Other
 URL:		http://www.etc.msys.ch/software/smtp-benchmark/
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		smtp-benchmark-linux_fix.diff
+BuildRoot:	%{_tmppath}/%{name}-root
 
 %description
 smtp-benchmark consists of two programs, smtpsend and smtpsink.
