@@ -1,7 +1,7 @@
 Summary:	SMTP Benchmark Suite
 Name:		smtp-benchmark
 Version:	1.0.3
-Release:	%mkrel 6
+Release:	%mkrel 7
 License:	BSD
 Group:		Networking/Other
 URL:		http://www.etc.msys.ch/software/smtp-benchmark/
