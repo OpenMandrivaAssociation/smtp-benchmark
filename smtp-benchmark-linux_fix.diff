@@ -1,0 +1,77 @@
+--- smtpsend/smtpsend.c	2003-04-16 19:18:49.000000000 +0200
++++ smtpsend/smtpsend.c.oden	2003-11-09 19:26:12.000000000 +0100
+@@ -45,6 +45,8 @@
+ #include <ctype.h>
+ #include <netdb.h>
+ #include <err.h>
++#include <time.h>
++#include <string.h>
+ 
+ #define TIMEOUT 60
+ #define BUFLEN	255
+@@ -151,26 +153,26 @@
+ {
+ 	char buf[BUFLEN];
+ 	int verbosity;
+-	
+-	strlcpy(buf, "MAIL FROM:<", sizeof(buf));
+-	strlcat(buf, from, sizeof(buf));
+-	strlcat(buf, ">", sizeof(buf));
++
++	strcpy(buf, "MAIL FROM:<");
++	strcat(buf, from);
++	strcat(buf, ">");
+ 		
+ 	if (smtp_send(fp, buf) != '2') {
+ 		warnx("protocol error, MAIL FROM");
+ 		return -1;
+ 	}
+ 	
+-	strlcpy(buf, "RCPT TO:<", sizeof(buf));
+-	strlcat(buf, to, sizeof(buf));
+-	strlcat(buf, ">", sizeof(buf));
++	strcpy(buf, "RCPT TO:<");
++	strcat(buf, to);
++	strcat(buf, ">");
+ 	
+ 	if (smtp_send(fp, buf) != '2') {
+ 		warnx("protocol error, RCPT TO");
+ 		return -1;
+ 	}
+ 	
+-	strlcpy(buf, "DATA", sizeof(buf));
++	strcpy(buf, "DATA");
+ 	
+ 	if (smtp_send(fp, buf) != '3') {
+ 		warnx("protocol error, DATA");
+@@ -180,23 +182,23 @@
+ 	verbosity = verbose;
+ 	verbose = 0;
+ 	
+-	strlcpy(buf, "To: ", sizeof(buf));
+-	strlcat(buf, to, sizeof(buf));
++	strcpy(buf, "To: ");
++	strcat(buf, to);
+ 	send_line(fp, buf);
+ 	
+-	strlcpy(buf, "From: ", sizeof(buf));
+-	strlcat(buf, from, sizeof(buf));
++	strcpy(buf, "From: ");
++	strcat(buf, from);
+ 	send_line(fp, buf);
+ 	
+-	strlcpy(buf, "Subject: ", sizeof(buf));
+-	strlcat(buf, subject, sizeof(buf));
++	strcpy(buf, "Subject: ");
++	strcat(buf, subject);
+ 	send_line(fp, buf);
+ 	send_line(fp, "X-Mailer: smtpsend\r\n");
+ 	
+ 	/* Change the following message generator to something more
+ 	   intelligent some day... */
+ 	
+-	strlcpy(buf, "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890", sizeof(buf));
++	strcpy(buf, "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890");
+ 	
+ 	while (size > 0) {
+ 		send_line(fp, buf);
