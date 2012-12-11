@@ -58,3 +58,36 @@ install -m0644 smtpsink/smtpsink.8 %{buildroot}%{_mandir}/man8/
 %{_mandir}/man8/smtpsink.8*
 
 
+
+
+%changelog
+* Tue Sep 08 2009 Thierry Vignaud <tvignaud@mandriva.com> 1.0.3-8mdv2010.0
++ Revision: 433966
+- rebuild
+
+* Sat Aug 02 2008 Thierry Vignaud <tvignaud@mandriva.com> 1.0.3-7mdv2009.0
++ Revision: 260858
+- rebuild
+
+* Tue Jul 29 2008 Thierry Vignaud <tvignaud@mandriva.com> 1.0.3-6mdv2009.0
++ Revision: 252653
+- rebuild
+
+* Wed Jan 02 2008 Olivier Blin <oblin@mandriva.com> 1.0.3-4mdv2008.1
++ Revision: 140829
+- restore BuildRoot
+
+  + Thierry Vignaud <tvignaud@mandriva.com>
+    - kill re-definition of %%buildroot on Pixel's request
+
+
+* Fri Mar 02 2007 Oden Eriksson <oeriksson@mandriva.com> 1.0.3-4mdv2007.0
++ Revision: 131208
+- Import smtp-benchmark
+
+* Fri Feb 03 2006 Oden Eriksson <oeriksson@mandriva.com> 1.0.3-3mdk
+- rebuild
+
+* Sat Jan 01 2005 Oden Eriksson <oeriksson@mandrakesoft.com> 1.0.3-2mdk
+- rebuild (1.0.4 won't build)
+
