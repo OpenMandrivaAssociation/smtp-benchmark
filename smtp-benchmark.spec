@@ -4,7 +4,7 @@ Version:	1.0.3
 Release:	9
 License:	BSD
 Group:		Networking/Other
-URL:		http://www.etc.msys.ch/software/smtp-benchmark/
+URL:		https://www.etc.msys.ch/software/smtp-benchmark/
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		smtp-benchmark-linux_fix.diff
 BuildRoot:	%{_tmppath}/%{name}-root
