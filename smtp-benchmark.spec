@@ -1,11 +1,11 @@
 Summary:	SMTP Benchmark Suite
 Name:		smtp-benchmark
-Version:	1.0.3
-Release:	9
+Version:	1.0.4
+Release:	1
 License:	BSD
 Group:		Networking/Other
-URL:		https://www.etc.msys.ch/software/smtp-benchmark/
-Source0:	%{name}-%{version}.tar.bz2
+URL:		https://spacehopper.org/mirrors/
+Source0:	%{name}-%{version}.tgz
 Patch0:		smtp-benchmark-linux_fix.diff
 BuildRoot:	%{_tmppath}/%{name}-root
 
@@ -28,8 +28,8 @@ to be measured.
 
 %prep
 
-%setup -q -n %{name}
-%patch0 -p0
+%setup -q
+%patch -P0 -p0
 
 %build
 
